@@ -4,17 +4,17 @@ body {
     margin: 0;
     padding: 0;
     background-color: black;
-    /* background-image: url('https://img.stablecog.com/insecure/1920w/aHR0cHM6Ly9iLnN0YWJsZWNvZy5jb20vZjA0ZjJjMGItYmVkOC00MDI0LWJjODYtNWY1ZjQ4MTllN2I5LmpwZWc.webp'); */
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     color: #f8f8f8;
    }
    
    header {
-    background-image: url('https://www.springboard.com/blog/wp-content/uploads/2019/07/sb-blog-programming.png');
+    /* background-image: url('https://www.springboard.com/blog/wp-content/uploads/2019/07/sb-blog-programming.png'); */
+    background-image: url('https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cHJvZ3JhbW1pbmd8ZW58MHx8MHx8fDA%3D');
     background-size: cover;
     background-position: center;
-    padding: 10rem 0;
+    padding: 20rem 0;
     text-align: center;
    }
    
