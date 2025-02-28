@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Name - Portfolio</title>
+  <title>Sami Fariz - Portfolio</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -17,26 +17,26 @@
       </ul>
     </nav>
   </header>
-
+  
   <section id="about">
     <h1>Sami Fariz</h1>
     <p>I'm a Computer Science student at UIC with a strong passion for software development, system programming, and problem-solving. I have experience working with C, C++, Python, and Assembly, along with hands-on expertise in iOS and web development. My technical interests include systems programming, performance optimization, memory management, and advanced debugging techniques using GDB.</p>
-<div class="about-image">
-    <img src="assets/IMG_2513.jpg" alt="Sami Fariz" />
-</div>  
-</section>
-
+    <div class="about-image">
+      <img src="assets/IMG_2513.jpg" alt="Sami Fariz" />
+    </div>
+  </section>
+  
   <section id="projects">
     <h2>Projects</h2>
     <div class="project">
       <h3>Islamic Prayer</h3>
       <p>Developed a responsive website to display Islamic prayer times based on the user's location using JavaScript, HTML, and CSS.
-        Integrated geolocation and API services for real-time data.
-        Features a real-time countdown to the next prayer.
-        Each prayer time card flips to reveal a motivational quote from the Quran.
-        Allows users to select a Surah (chapter) from the Quran via a dropdown menu.
-       </p>
-       <a href="https://www.dhikrconnect.com" class="visit-btn">Visit Website</a>
+      Integrated geolocation and API services for real-time data.
+      Features a real-time countdown to the next prayer.
+      Each prayer time card flips to reveal a motivational quote from the Quran.
+      Allows users to select a Surah (chapter) from the Quran via a dropdown menu.
+      </p>
+      <a href="https://www.dhikrconnect.com" class="visit-btn">Visit Website</a>
     </div>
     <!-- <div class="project">
       <h3>Project 2</h3> TO ADD ANOTHER PROJECT
@@ -45,28 +45,29 @@
       <a href="#">GitHub</a>
     </div> -->
   </section>
-
+  
   <section id="resume">
     <h2>Resume</h2>
     <a href="assets/resume.pdf" download="Sami_Fariz_Resume.pdf" class="download-btn">Download Resume</a>
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p>I'd love to hear from you! Please fill out the form below to get in touch.</p>
-        <form id="contact-form">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required placeholder="Your Full Name">
-            
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required placeholder="Your Email Address">
-            
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" required placeholder="Write your message..."></textarea>
-            
-            <button type="submit">Send Message</button>
-        </form>
-    </section>
-    
-
+  </section>
+  
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>I'd love to hear from you! Please fill out the form below to get in touch.</p>
+    <form id="contact-form" action="https://formspree.io/f/xrbenpja" method="POST">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required placeholder="Your Full Name">
+      
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required placeholder="Your Email Address">
+      
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" required placeholder="Write your message..."></textarea>
+      
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+  
   <footer>
     <p>&copy; 2025 Sami Fariz</p>
     <div class="social-links">
@@ -74,7 +75,7 @@
       <a href="https://www.linkedin.com/in/sami-fariz/">LinkedIn</a>
     </div>
   </footer>
-
+  
   <script src="script.js"></script>
 </body>
 </html>
