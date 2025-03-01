@@ -1,14 +1,10 @@
-// Handle contact form submission
 document.getElementById('contact-form').addEventListener('submit', function (e) {
-    // Do not prevent default - let Formspree handle the submission
-    // Show a thank you message
+   
     setTimeout(function() {
       alert('Thank you for reaching out! I will get back to you soon.');
     }, 100);
-    // The form will be submitted to Formspree and the page will reload
   });
   
-  // Smooth scrolling for navigation links
   document.querySelectorAll('nav a').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       e.preventDefault();
@@ -18,7 +14,6 @@ document.getElementById('contact-form').addEventListener('submit', function (e) 
     });
   });
   
-  // Add animations to sections when they become visible
   document.querySelectorAll('section').forEach(section => {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -32,7 +27,6 @@ document.getElementById('contact-form').addEventListener('submit', function (e) 
     observer.observe(section);
   });
   
-  // Hover effects for section headers
   const headers = [
     document.querySelector('#about h1'),
     document.querySelector('#projects h2'),
@@ -52,7 +46,6 @@ document.getElementById('contact-form').addEventListener('submit', function (e) 
     }
   });
   
-  // Hover effects for navigation links
   const navLinks = document.querySelectorAll('nav ul li a');
   navLinks.forEach(link => {
     link.addEventListener('mouseenter', function() {
