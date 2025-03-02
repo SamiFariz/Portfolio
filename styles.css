@@ -10,7 +10,6 @@ body {
    }
    
    header {
-    /* background-image: url('https://www.springboard.com/blog/wp-content/uploads/2019/07/sb-blog-programming.png'); */
     background-image: url('https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cHJvZ3JhbW1pbmd8ZW58MHx8MHx8fDA%3D');
     background-size: cover;
     background-position: center;
@@ -92,8 +91,6 @@ body {
   
   
 
-  
-   
    #about h1, #projects h2, #resume h2, #contact h2 {
     font-size: 2.5rem;
     font-weight: 700;
@@ -115,7 +112,7 @@ body {
    
    #about h1::after, #projects h2::after, #resume h2::after, #contact h2::after {
     content: '';
-    position: absolute;
+    position: relative;
     bottom: -3px;
     left: 0;
     width: 100%;
@@ -360,7 +357,37 @@ body {
     letter-spacing: 0.5px;
    }
    
+   #about {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4rem 2rem;
+    margin: 2rem 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    min-height: 500px; 
+    position: relative; 
+    z-index: 1; 
+  }
   
+  .about-content {
+    flex: 1;
+    max-width: 60%;
+    padding-right: 2rem; 
+    z-index: 2; 
+  }
+  
+  .about-image {
+    flex: 1;
+    max-width: 20%;
+    text-align: center; 
+    z-index: 1; 
+  }
+  
+  .about-image img {
+    max-width: 100%;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
    
    
    a {
@@ -385,22 +412,134 @@ body {
     margin: 0 10px;
    }
    
-   @media (max-width: 768px) {
+/* MOBILE DEVICES */
+
+@media (max-width: 768px) {
     nav ul {
-     flex-direction: column;
-     align-items: center;
+      flex-direction: column;
+      align-items: center;
+      margin-top: -3rem;
     }
     
     nav ul li {
-     display: block;
-     margin: 10px 0;
+      display: block;
+      margin: 10px 0;
+    }
+    
+    header {
+      padding: 10rem 0;
     }
     
     #about h1, #projects h2, #resume h2, #contact h2 {
-     font-size: 2rem;
+      font-size: 2rem;
     }
     
     #resume .download-btn {
-     padding: 10px 20px;
+      padding: 10px 20px;
     }
-   }
+        #about {
+      flex-direction: column;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    
+    .about-content {
+      max-width: 100%;
+      padding-right: 0;
+      order: 2;
+    }
+    
+    .about-image {
+      max-width: 70%;
+      margin-bottom: 2rem;
+      order: 1;
+    }
+    
+    .project {
+      padding: 3rem 1.5rem;
+    }
+    
+    #contact-form {
+      padding: 1.5rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    header {
+      padding: 8rem 0;
+    }
+    
+    #about h1, #projects h2, #resume h2, #contact h2 {
+      font-size: 1.75rem;
+    }
+    
+    .about-image {
+      max-width: 85%;
+    }
+    
+    #resume {
+      padding: 5rem 1rem;
+    }
+    
+    .project {
+      padding: 2rem 1rem;
+      margin: 2rem 0;
+    }
+    
+    #contact-form input,
+    #contact-form textarea {
+      padding: 0.75rem;
+    }
+    
+    #contact-form button {
+      padding: 0.75rem 1.5rem;
+    }
+    
+    .social-header a {
+      margin: 0 10px;
+      font-size: 1.5rem;
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+  }
+  
+  @media (max-height: 500px) and (orientation: landscape) {
+    header {
+      padding: 5rem 0;
+    }
+    
+    nav ul {
+      margin-top: -2rem;
+    }
+    
+    #about {
+      min-height: auto;
+      padding: 2rem 1rem;
+    }
+    
+    #resume {
+      padding: 3rem 1rem;
+    }
+  }
+  
+  @media (min-width: 769px) and (max-width: 1024px) {
+    #about {
+      padding: 3rem 2rem;
+    }
+    
+    .about-content {
+      max-width: 55%;
+    }
+    
+    .about-image {
+      max-width: 30%;
+    }
+    
+    #resume {
+      padding: 7rem;
+    }
+    
+    .project {
+      padding: 5rem;
+    }
+  }
