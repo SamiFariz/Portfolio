@@ -165,7 +165,51 @@ body {
     font-size: 18px;
   }
   
+.social-header {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
+  }
   
+  .social-header a {
+    margin: 0 15px;
+    font-size: 1.8rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+  }
+  
+  .social-header a.github-icon {
+    color: #333;
+    background-color: #f0f0f0;
+  }
+  
+  .social-header a.github-icon:hover {
+    color: #24292e;
+    background-color: #e6e6e6;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .social-header a.linkedin-icon {
+    color: #0077b5;
+    background-color: #e8f4fa;
+  }
+  
+  .social-header a.linkedin-icon:hover {
+    color: #0077b5;
+    background-color: #d0e8f5;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  header {
+    padding-bottom: 10px;
+  }
 
 #resume .download-btn {
     display: inline-block;
