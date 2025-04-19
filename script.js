@@ -1,61 +1,229 @@
-document.getElementById('contact-form').addEventListener('submit', function (e) {
-   
-    setTimeout(function() {
-      alert('Thank you for reaching out! I will get back to you soon.');
-    }, 100);
+// Preloader
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.querySelector('.preloader').classList.add('hidden');
+  }, 500);
+});
+
+// Sticky Navigation
+window.addEventListener('scroll', () => {
+  const navbar = document.getElementById('navbar');
+  if (window.scrollY > 100) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+});
+
+// Mobile Navigation Toggle
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  navLinks.classList.toggle('active');
+});
+
+// Close mobile menu when clicking a link
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    navLinks.classList.remove('active');
   });
-  
-  document.querySelectorAll('nav a').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      document.querySelector(this.getAttribute('href')).scrollIntoView({
+});
+
+// Smooth Scrolling
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      window.scrollTo({
+        top: target.offsetTop - 70,
         behavior: 'smooth'
-      });
-    });
-  });
-  
-  document.querySelectorAll('section').forEach(section => {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        } else {
-          entry.target.classList.remove('visible');
-        }
-      });
-    }, { threshold: 0.4 });
-    observer.observe(section);
-  });
-  
-  const headers = [
-    document.querySelector('#about h1'),
-    document.querySelector('#projects h2'),
-    document.querySelector('#resume h2'),
-    document.querySelector('#contact h2')
-  ];
-  headers.forEach(header => {
-    if (header) {
-      header.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-5px) scale(1.03)';
-        this.style.color = '#00ccff';
-      });
-      header.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateY(0) scale(1)';
-        this.style.color = '#ffffff';
       });
     }
   });
+});
+
+// Section Animation on Scroll
+const observeSection = (entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      
+      // Animate skill bars when skills section becomes visible
+      if (entry.target.id === 'skills') {
+        animateSkillBars();
+      }
+    }
+  });
+};
+
+const sectionObserver = new IntersectionObserver(observeSection, {
+  root: null,
+  threshold: 0.15,
+  rootMargin: '0px'
+});
+
+document.querySelectorAll('.section').forEach(section => {
+  sectionObserver.observe(section);
+});
+
+// Animate Skill Bars
+function animateSkillBars() {
+  document.querySelectorAll('.skill-progress-bar').forEach(bar => {
+    const width = bar.getAttribute('data-width');
+    setTimeout(() => {
+      bar.style.width = width + '%';
+    }, 300);
+  });
+}
+
+// Skills Circle Animation
+const skillsData = [
+  { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
+  { name: 'Python', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
+  { name: 'C++', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg' },
+  { name: 'HTML5', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
+  { name: 'CSS3', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
+  { name: 'React', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
+  { name: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
+  { name: 'Swift', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg' }
+];
+
+function createSkillsCircle() {
+  const skillsCircle = document.querySelector('.skills-circle');
   
-  const navLinks = document.querySelectorAll('nav ul li a');
-  navLinks.forEach(link => {
-    link.addEventListener('mouseenter', function() {
-      this.style.transform = 'translateY(-5px) scale(1.1)';
-      this.style.color = '#00ccff';
-      this.style.textShadow = '0 0 10px rgba(0, 204, 255, 0.5)';
+  // Clear any existing content
+  skillsCircle.innerHTML = '';
+  
+  // Calculate positions in a circle
+  const radius = 120; // Adjust based on the circle size
+  const totalSkills = skillsData.length;
+  
+  skillsData.forEach((skill, index) => {
+    // Calculate position on the circle
+    const angle = (index / totalSkills) * 2 * Math.PI;
+    const x = radius * Math.cos(angle);
+    const y = radius * Math.sin(angle);
+    
+    // Create skill logo element
+    const skillLogo = document.createElement('div');
+    skillLogo.className = 'skill-logo';
+    skillLogo.style.transform = `translate(${x}px, ${y}px)`;
+    
+    // Create image
+    const img = document.createElement('img');
+    img.src = skill.icon;
+    img.alt = skill.name;
+    
+    // Create tooltip
+    const tooltip = document.createElement('div');
+    tooltip.className = 'skill-tooltip';
+    tooltip.textContent = skill.name;
+    
+    // Append elements
+    skillLogo.appendChild(img);
+    skillLogo.appendChild(tooltip);
+    skillsCircle.appendChild(skillLogo);
+  });
+  
+  // Add rotation animation
+  animateSkillsRotation();
+}
+
+function animateSkillsRotation() {
+  const skillLogos = document.querySelectorAll('.skill-logo');
+  const totalSkills = skillLogos.length;
+  const radius = 120;
+  
+  let currentAngle = 0;
+  
+  setInterval(() => {
+    currentAngle += 0.005; // Speed of rotation
+    
+    skillLogos.forEach((logo, index) => {
+      const angle = currentAngle + (index / totalSkills) * 2 * Math.PI;
+      const x = radius * Math.cos(angle);
+      const y = radius * Math.sin(angle);
+      
+      logo.style.transform = `translate(${x}px, ${y}px)`;
     });
-    link.addEventListener('mouseleave', function() {
-      this.style.transform = 'translateY(0) scale(1)';
-      this.style.color = '#ffffff';
-      this.style.textShadow = '1px 1px 3px rgba(0, 0, 0, 0.8)';
+  }, 30);
+}
+
+// Initialize skills circle when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  createSkillsCircle();
+  
+  // Contact form submission
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      // Let the form submit normally to Formspree
+      // But show a thank you message after a short delay
+      setTimeout(() => {
+        alert('Thank you for reaching out! I will get back to you soon.');
+      }, 100);
+    });
+  }
+  
+  // Project card hover effects
+  document.querySelectorAll('.project-card').forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      card.querySelector('.project-card-inner').style.transform = 'rotateY(180deg)';
+    });
+    
+    card.addEventListener('mouseleave', () => {
+      card.querySelector('.project-card-inner').style.transform = 'rotateY(0)';
     });
   });
+});
+
+// Create a favicon if it doesn't exist
+function createFavicon() {
+  // Check if favicon exists
+  fetch('assets/favicon.png')
+    .then(response => {
+      if (!response.ok) {
+        // Create a canvas to draw the favicon
+        const canvas = document.createElement('canvas');
+        canvas.width = 64;
+        canvas.height = 64;
+        const ctx = canvas.getContext('2d');
+        
+        // Draw gradient background
+        const gradient = ctx.createLinearGradient(0, 0, 64, 64);
+        gradient.addColorStop(0, '#0066cc');
+        gradient.addColorStop(1, '#00cc99');
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, 64, 64);
+        
+        // Draw text
+        ctx.fillStyle = 'white';
+        ctx.font = 'bold 36px Montserrat, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('SF', 32, 32);
+        
+        // Convert to data URL
+        const dataUrl = canvas.toDataURL('image/png');
+        
+        // Create a link element for the favicon
+        const link = document.createElement('link');
+        link.rel = 'icon';
+        link.type = 'image/png';
+        link.href = dataUrl;
+        
+        // Add to document head
+        document.head.appendChild(link);
+      }
+    })
+    .catch(error => {
+      console.error('Error checking favicon:', error);
+    });
+}
+
+// Call createFavicon on page load
+window.addEventListener('load', createFavicon);

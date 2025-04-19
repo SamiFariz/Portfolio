@@ -3,97 +3,267 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sami Fariz - Software Developer Portfolio showcasing skills in C++, Python, JavaScript, and more">
+  <meta name="keywords" content="Sami Fariz, Software Developer, Portfolio, Programming, Web Development, iOS Development">
   <title>Sami Fariz - Portfolio</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
 </head>
 <body>
-  <header>
-    <nav>
-      <ul>
-        <li><a href="#about">About Me</a></li>
+  <div class="preloader">
+    <div class="loader"></div>
+  </div>
+
+  <header id="home">
+    <div class="header-content">
+      <h1 class="animate-title">Sami Fariz</h1>
+      <p class="animate-subtitle">Software Developer & Computer Science Student</p>
+      <a href="#contact" class="cta-button animate-button">Get in touch</a>
+    </div>
+  </header>
+
+  <nav id="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <a href="#home">SF</a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#resume">Resume</a></li>
-        <li><a href="#contact">Contact Me</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
-    </nav>
-    <div class="social-header">
-        <a href="https://github.com/SamiFariz" target="_blank" class="github-icon">
+      <div class="social-nav">
+        <a href="https://github.com/SamiFariz" target="_blank" class="github-icon" aria-label="GitHub">
           <i class="fab fa-github"></i>
         </a>
-        <a href="https://www.linkedin.com/in/sami-fariz/" target="_blank" class="linkedin-icon">
+        <a href="https://www.linkedin.com/in/sami-fariz/" target="_blank" class="linkedin-icon" aria-label="LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </div>
-  </header>
-  <section id="about">
-    <h1>Sami Fariz</h1>
-    <p>I'm a Computer Science student at UIC with a strong passion for software development, system programming, and problem-solving. I have experience working with C, C++, Python, and Assembly, along with hands-on expertise in iOS and web development. My technical interests include systems programming, performance optimization, memory management, and advanced debugging techniques using GDB.</p>
-    <p>When I'm not coding, you can find me diving into the latest advancements in computer science, whether it's exploring new frameworks, experimenting with cutting-edge tools, or contributing to open-source projects that push the boundaries of technology. Outside of tech, I enjoy playing basketball and playing video games, which helps me recharge and approach problems with a fresh perspective.</p> 
-   
-</div>
-<div class="about-image">
-  <img src="assets/IMG_2330.jpg" alt="Sami Fariz" />
-</div>
-
-  </section>
-  
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="project">
-      <h3>Dhikr Connect (Website)</h3>
-      <p>Developed a responsive website to display Islamic prayer times based on the user's location using JavaScript, HTML, and CSS.
-      Integrated geolocation and API services for real-time data.
-      Features a real-time countdown to the next prayer.
-      Each prayer time card flips to reveal a motivational quote from the Quran.
-      Allows users to select a Surah (chapter) from the Quran via a dropdown menu.
-      </p>
-      
-      <a href="https://www.dhikrconnect.com" class="visit-btn">Visit Website</a>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
+  </nav>
 
-    <div class="project">
-      <h3>Dhikr Connect (App)</h3>
-      <p>DhikrConnect is a privacy-first iOS app built with Swift and SwiftUI,
-         serving as a comprehensive Islamic companion. It features real-time prayer 
-         time calculations using CoreLocation and the Aladhan API, a responsive Quran browser, 
-         a Qibla compass, Zakat calculator, and daily Hadith display. Designed with MVVM architecture, 
-         it supports offline use, dark/light mode, Arabic typography, and optimized performance across 12+ 
-         devices in 200+ countries. With 1000+ daily users and 99.9% crash-free sessions, DhikrConnect integrates 
-         device hardware and REST APIs to deliver a seamless, respectful religious experience.
-      </p>
-      
-      <a href="https://apps.apple.com/us/app/dhikr-connect/id6743780696" class="visit-btn">Visit App</a>
+  <section id="about" class="section">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p>I'm a Computer Science student at UIC with a strong passion for software development, system programming, and problem-solving. I have experience working with C, C++, Python, and Assembly, along with hands-on expertise in iOS and web development.</p>
+          <p>My technical interests include systems programming, performance optimization, memory management, and advanced debugging techniques using GDB.</p>
+          <p>When I'm not coding, you can find me diving into the latest advancements in computer science, whether it's exploring new frameworks, experimenting with cutting-edge tools, or contributing to open-source projects that push the boundaries of technology. Outside of tech, I enjoy playing basketball and video games, which helps me recharge and approach problems with a fresh perspective.</p>
+        </div>
+        <div class="about-image">
+          <img src="assets/IMG_2330.jpg" alt="Sami Fariz" loading="lazy" />
+        </div>
+      </div>
     </div>
   </section>
   
-  <section id="resume">
-    <h2>Resume</h2>
-    <a href="assets/resume.pdf" download="Sami_Fariz_Resume.pdf" class="download-btn">Download Resume</a>
+  <section id="skills" class="section">
+    <div class="container">
+      <h2 class="section-title">My Skills</h2>
+      
+      <div class="skills-container">
+        <div class="skills-circle-container">
+          <div class="skills-circle">
+            <!-- Skills logos will be added dynamically via JavaScript -->
+          </div>
+        </div>
+        
+        <div class="skill-bars">
+          <div class="skill-category">
+            <h3>Programming Languages</h3>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span>C++</span>
+                <span>90%</span>
+              </div>
+              <div class="skill-progress">
+                <div class="skill-progress-bar" data-width="90"></div>
+              </div>
+            </div>
+            
+            <div class="skill-item">
+              <div class="skill-info">
+                <span>Python</span>
+                <span>85%</span>
+              </div>
+              <div class="skill-progress">
+                <div class="skill-progress-bar" data-width="85"></div>
+              </div>
+            </div>
+            
+            <div class="skill-item">
+              <div class="skill-info">
+                <span>JavaScript</span>
+                <span>80%</span>
+              </div>
+              <div class="skill-progress">
+                <div class="skill-progress-bar" data-width="80"></div>
+              </div>
+            </div>
+            
+            <div class="skill-item">
+              <div class="skill-info">
+                <span>Swift</span>
+                <span>75%</span>
+              </div>
+              <div class="skill-progress">
+                <div class="skill-progress-bar" data-width="75"></div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="skill-category">
+            <h3>Web Development</h3>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span>HTML/CSS</span>
+                <span>90%</span>
+              </div>
+              <div class="skill-progress">
+                <div class="skill-progress-bar" data-width="90"></div>
+              </div>
+            </div>
+            
+            <div class="skill-item">
+              <div class="skill-info">
+                <span>React</span>
+                <span>75%</span>
+              </div>
+              <div class="skill-progress">
+                <div class="skill-progress-bar" data-width="75"></div>
+              </div>
+            </div>
+            
+            <div class="skill-item">
+              <div class="skill-info">
+                <span>Node.js</span>
+                <span>70%</span>
+              </div>
+              <div class="skill-progress">
+                <div class="skill-progress-bar" data-width="70"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
   
-  <section id="contact">
-    <h2>Contact Me</h2>
-    <p>I'd love to hear from you! Please fill out the form below to get in touch.</p>
-    <form id="contact-form" action="https://formspree.io/f/xrbenpja" method="POST">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required placeholder="Your Full Name">
-      
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required placeholder="Your Email Address">
-      
-      <label for="message">Message:</label>
-      <textarea id="message" name="message" required placeholder="Write your message..."></textarea>
-      
-      <button type="submit">Send Message</button>
-    </form>
+  <section id="projects" class="section">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-card-inner">
+            <div class="project-card-front">
+              <div class="project-image" style="background-image: url('https://www.shutterstock.com/image-photo/islamic-background-photo-mosque-shadows-600nw-2129645690.jpg')"></div>
+              <h3>Dhikr Connect (Website)</h3>
+            </div>
+            <div class="project-card-back">
+              <h3>Dhikr Connect (Website)</h3>
+              <p>Developed a responsive website to display Islamic prayer times based on the user's location using JavaScript, HTML, and CSS. Integrated geolocation and API services for real-time data. Features a real-time countdown to the next prayer. Each prayer time card flips to reveal a motivational quote from the Quran. Allows users to select a Surah (chapter) from the Quran via a dropdown menu.</p>
+              <a href="https://www.dhikrconnect.com" class="project-btn" target="_blank">Visit Website</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-card-inner">
+            <div class="project-card-front">
+              <div class="project-image" style="background-image: url('https://www.shutterstock.com/image-photo/islamic-background-photo-mosque-shadows-600nw-2129645690.jpg')"></div>
+              <h3>Dhikr Connect (App)</h3>
+            </div>
+            <div class="project-card-back">
+              <h3>Dhikr Connect (App)</h3>
+              <p>DhikrConnect is a privacy-first iOS app built with Swift and SwiftUI, serving as a comprehensive Islamic companion. It features real-time prayer time calculations using CoreLocation and the Aladhan API, a responsive Quran browser, a Qibla compass, Zakat calculator, and daily Hadith display. Designed with MVVM architecture, it supports offline use, dark/light mode, Arabic typography, and optimized performance across 12+ devices in 200+ countries.</p>
+              <a href="https://apps.apple.com/us/app/dhikr-connect/id6743780696" class="project-btn" target="_blank">Visit App</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="resume" class="section">
+    <div class="container">
+      <h2 class="section-title">Resume</h2>
+      <div class="resume-content">
+        <p>View or download my resume to learn more about my education, experience, and skills.</p>
+        <a href="assets/resume.pdf" download="Sami_Fariz_Resume.pdf" class="download-btn">
+          <i class="fas fa-download"></i> Download Resume
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <section id="contact" class="section">
+    <div class="container">
+      <h2 class="section-title">Contact Me</h2>
+      <p class="contact-intro">I'd love to hear from you! Please fill out the form below to get in touch.</p>
+      <form id="contact-form" action="https://formspree.io/f/xrbenpja" method="POST">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required placeholder="Your Full Name">
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required placeholder="Your Email Address">
+        </div>
+        
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required placeholder="Write your message..."></textarea>
+        </div>
+        
+        <button type="submit" class="submit-btn">
+          <span>Send Message</span>
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </form>
+    </div>
   </section>
   
   <footer>
-    <p>&copy; 2025 Sami Fariz</p>
-    <div class="social-links">
-      <a href="https://github.com/SamiFariz">GitHub</a>
-      <a href="https://www.linkedin.com/in/sami-fariz/">LinkedIn</a>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <span>SF</span>
+        </div>
+        <div class="footer-links">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#resume">Resume</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-social">
+          <a href="https://github.com/SamiFariz" target="_blank" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/sami-fariz/" target="_blank" aria-label="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Sami Fariz. All rights reserved.</p>
+      </div>
     </div>
   </footer>
   
