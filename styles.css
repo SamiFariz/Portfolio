@@ -523,6 +523,8 @@ header {
   perspective: 1000px;
   border-radius: var(--border-radius);
   overflow: hidden;
+  touch-action: manipulation;
+  cursor: pointer;
 }
 
 .project-card-inner {
@@ -533,8 +535,14 @@ header {
   transform-style: preserve-3d;
 }
 
-.project-card:hover .project-card-inner {
+.project-card.flipped .project-card-inner {
   transform: rotateY(180deg);
+}
+
+@media (hover: hover) {
+  .project-card:hover .project-card-inner {
+    transform: rotateY(180deg);
+  }
 }
 
 .project-card-front, .project-card-back {
@@ -544,6 +552,7 @@ header {
   backface-visibility: hidden;
   border-radius: var(--border-radius);
   overflow: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .project-card-front {
@@ -566,7 +575,7 @@ header {
 .project-card-back {
   background-color: var(--darker-bg);
   transform: rotateY(180deg);
-  padding: 2rem;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -574,14 +583,15 @@ header {
 
 .project-card-back h3 {
   font-size: 1.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
   color: var(--accent-color);
 }
 
 .project-card-back p {
   font-size: 0.95rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   flex-grow: 1;
+  overflow-y: auto;
 }
 
 .project-btn {
@@ -594,6 +604,8 @@ header {
   border-radius: 50px;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-top: auto;
+  white-space: nowrap;
 }
 
 .project-btn:hover {

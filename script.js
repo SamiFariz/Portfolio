@@ -171,13 +171,45 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Project card hover effects
   document.querySelectorAll('.project-card').forEach(card => {
-    card.addEventListener('mouseenter', () => {
-      card.querySelector('.project-card-inner').style.transform = 'rotateY(180deg)';
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    // Handle touch events
+    card.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    card.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    }, { passive: true });
+
+    // Handle click events
+    card.addEventListener('click', (e) => {
+      if (window.matchMedia('(hover: none)').matches) {
+        card.classList.toggle('flipped');
+      }
     });
-    
-    card.addEventListener('mouseleave', () => {
-      card.querySelector('.project-card-inner').style.transform = 'rotateY(0)';
-    });
+
+    function handleSwipe() {
+      const swipeThreshold = 50;
+      const diff = touchStartX - touchEndX;
+
+      if (Math.abs(diff) > swipeThreshold) {
+        card.classList.toggle('flipped');
+      }
+    }
+
+    // Handle hover for non-touch devices
+    if (window.matchMedia('(hover: hover)').matches) {
+      card.addEventListener('mouseenter', () => {
+        card.classList.add('flipped');
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        card.classList.remove('flipped');
+      });
+    }
   });
 });
 
