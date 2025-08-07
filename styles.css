@@ -514,8 +514,10 @@ header {
 /* Projects Section */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .project-card {
@@ -525,6 +527,13 @@ header {
   overflow: hidden;
   touch-action: manipulation;
   cursor: pointer;
+  box-shadow: var(--box-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
 }
 
 .project-card-inner {
@@ -879,6 +888,8 @@ footer {
   
   .projects-grid {
     grid-template-columns: 1fr;
+    max-width: 500px;
+    gap: 2rem;
   }
   
   .footer-content {
