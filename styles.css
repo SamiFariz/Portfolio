@@ -278,9 +278,35 @@ header {
 .animate-subtitle {
   font-size: 1.5rem;
   margin-bottom: 2rem;
-  opacity: 0;
-  transform: translateY(-20px);
-  animation: fadeInDown 1s ease forwards 0.8s;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.typing-animation {
+  overflow: hidden;
+  border-right: 3px solid transparent;
+  white-space: nowrap;
+  width: 0;
+  opacity: 1;
+  animation: typing 3s steps(50, end) 2.5s forwards, blink-caret 0.75s step-end 8 2.5s;
+}
+
+@keyframes typing {
+  from { 
+    width: 0; 
+  }
+  to { 
+    width: 100%; 
+  }
+}
+
+@keyframes blink-caret {
+  from, to { 
+    border-color: transparent; 
+  }
+  50% { 
+    border-color: var(--accent-color); 
+  }
 }
 
 .cta-button {
