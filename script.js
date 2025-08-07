@@ -100,7 +100,7 @@ function createSkillsCircle() {
   skillsCircle.innerHTML = '';
   
   // Calculate positions in a circle
-  const radius = 120; 
+  const radius = 120; // Adjust based on the circle size
   const totalSkills = skillsData.length;
   
   skillsData.forEach((skill, index) => {
@@ -113,6 +113,8 @@ function createSkillsCircle() {
     const skillLogo = document.createElement('div');
     skillLogo.className = 'skill-logo';
     skillLogo.style.transform = `translate(${x}px, ${y}px)`;
+    skillLogo.style.opacity = '0';
+    skillLogo.style.animationDelay = `${index * 0.1}s`;
     
     // Create image
     const img = document.createElement('img');
@@ -123,11 +125,68 @@ function createSkillsCircle() {
     const tooltip = document.createElement('div');
     tooltip.className = 'skill-tooltip';
     tooltip.textContent = skill.name;
+    tooltip.setAttribute('data-skill', skill.name);
     
     // Append elements
     skillLogo.appendChild(img);
     skillLogo.appendChild(tooltip);
     skillsCircle.appendChild(skillLogo);
+    
+    // Add click interaction
+    skillLogo.addEventListener('click', () => {
+      skillLogo.classList.add('active');
+      setTimeout(() => {
+        skillLogo.classList.remove('active');
+      }, 600);
+    });
+    
+    // Add hover events for better tooltip control
+    skillLogo.addEventListener('mouseenter', (e) => {
+      e.stopPropagation();
+      const tooltip = skillLogo.querySelector('.skill-tooltip');
+      if (tooltip) {
+        tooltip.style.opacity = '1';
+        tooltip.style.visibility = 'visible';
+        tooltip.style.transform = 'translateX(-50%) translateY(-10px)';
+      }
+    });
+    
+    skillLogo.addEventListener('mouseleave', (e) => {
+      e.stopPropagation();
+      const tooltip = skillLogo.querySelector('.skill-tooltip');
+      if (tooltip) {
+        tooltip.style.opacity = '0';
+        tooltip.style.visibility = 'hidden';
+        tooltip.style.transform = 'translateX(-50%) translateY(0)';
+      }
+    });
+    
+    // Also add events to the image for better coverage
+    img.addEventListener('mouseenter', (e) => {
+      e.stopPropagation();
+      const tooltip = skillLogo.querySelector('.skill-tooltip');
+      if (tooltip) {
+        tooltip.style.opacity = '1';
+        tooltip.style.visibility = 'visible';
+        tooltip.style.transform = 'translateX(-50%) translateY(-10px)';
+      }
+    });
+    
+    img.addEventListener('mouseleave', (e) => {
+      e.stopPropagation();
+      const tooltip = skillLogo.querySelector('.skill-tooltip');
+      if (tooltip) {
+        tooltip.style.opacity = '0';
+        tooltip.style.visibility = 'hidden';
+        tooltip.style.transform = 'translateX(-50%) translateY(0)';
+      }
+    });
+    
+    // Animate in with stagger
+    setTimeout(() => {
+      skillLogo.style.opacity = '1';
+      skillLogo.style.transform = `translate(${x}px, ${y}px) scale(1)`;
+    }, index * 100);
   });
   
   // Add rotation animation
@@ -140,19 +199,51 @@ function animateSkillsRotation() {
   const radius = 120;
   
   let currentAngle = 0;
+  let speed = 0.003; // Slower, more elegant rotation
   
-  setInterval(() => {
-    currentAngle += 0.005; 
+  function animate() {
+    currentAngle += speed;
     
     skillLogos.forEach((logo, index) => {
       const angle = currentAngle + (index / totalSkills) * 2 * Math.PI;
       const x = radius * Math.cos(angle);
       const y = radius * Math.sin(angle);
       
-      logo.style.transform = `translate(${x}px, ${y}px)`;
+      // Add subtle floating effect
+      const floatY = Math.sin(currentAngle * 2 + index) * 3;
+      
+      logo.style.transform = `translate(${x}px, ${y + floatY}px)`;
     });
-  }, 30);
+    
+    requestAnimationFrame(animate);
+  }
+  
+  animate();
 }
+
+// Add intersection observer for skills section
+const skillsObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const skillLogos = entry.target.querySelectorAll('.skill-logo');
+      skillLogos.forEach((logo, index) => {
+        setTimeout(() => {
+          logo.style.opacity = '1';
+        }, index * 150);
+      });
+    }
+  });
+}, {
+  threshold: 0.3
+});
+
+// Observe skills section
+document.addEventListener('DOMContentLoaded', () => {
+  const skillsSection = document.querySelector('.skills-circle-container');
+  if (skillsSection) {
+    skillsObserver.observe(skillsSection);
+  }
+});
 
 // Initialize skills circle when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
