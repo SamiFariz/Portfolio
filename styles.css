@@ -232,7 +232,7 @@ header {
 
 .welcome-hand {
   display: inline-block;
-  font-size: 3rem;
+  font-size: 4rem;
   margin-left: 0.5rem;
   animation: wave 3s ease-in-out infinite;
   opacity: 0;
@@ -1134,7 +1134,7 @@ footer {
   }
   
   .welcome-hand {
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     margin-left: 0.3rem;
   }
   
@@ -1239,7 +1239,7 @@ footer {
   }
   
   .welcome-hand {
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin-left: 0.2rem;
   }
   
