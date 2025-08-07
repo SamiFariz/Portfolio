@@ -133,6 +133,7 @@ function createSkillsCircle() {
     skillLogo.style.transform = `translate(${x}px, ${y}px)`;
     skillLogo.style.opacity = '0';
     skillLogo.style.animationDelay = `${index * 0.1}s`;
+    skillLogo.setAttribute('data-skill', skill.name);
     
     // Create image
     const img = document.createElement('img');
@@ -149,56 +150,6 @@ function createSkillsCircle() {
     skillLogo.appendChild(img);
     skillLogo.appendChild(tooltip);
     skillsCircle.appendChild(skillLogo);
-    
-    // Add click interaction
-    skillLogo.addEventListener('click', () => {
-      skillLogo.classList.add('active');
-      setTimeout(() => {
-        skillLogo.classList.remove('active');
-      }, 600);
-    });
-    
-    // Add hover events for better tooltip control
-    skillLogo.addEventListener('mouseenter', (e) => {
-      e.stopPropagation();
-      const tooltip = skillLogo.querySelector('.skill-tooltip');
-      if (tooltip) {
-        tooltip.style.opacity = '1';
-        tooltip.style.visibility = 'visible';
-        tooltip.style.transform = 'translateX(-50%) translateY(-10px)';
-      }
-    });
-    
-    skillLogo.addEventListener('mouseleave', (e) => {
-      e.stopPropagation();
-      const tooltip = skillLogo.querySelector('.skill-tooltip');
-      if (tooltip) {
-        tooltip.style.opacity = '0';
-        tooltip.style.visibility = 'hidden';
-        tooltip.style.transform = 'translateX(-50%) translateY(0)';
-      }
-    });
-    
-    // Also add events to the image for better coverage
-    img.addEventListener('mouseenter', (e) => {
-      e.stopPropagation();
-      const tooltip = skillLogo.querySelector('.skill-tooltip');
-      if (tooltip) {
-        tooltip.style.opacity = '1';
-        tooltip.style.visibility = 'visible';
-        tooltip.style.transform = 'translateX(-50%) translateY(-10px)';
-      }
-    });
-    
-    img.addEventListener('mouseleave', (e) => {
-      e.stopPropagation();
-      const tooltip = skillLogo.querySelector('.skill-tooltip');
-      if (tooltip) {
-        tooltip.style.opacity = '0';
-        tooltip.style.visibility = 'hidden';
-        tooltip.style.transform = 'translateX(-50%) translateY(0)';
-      }
-    });
     
     // Animate in with stagger
     setTimeout(() => {
@@ -238,6 +189,62 @@ function animateSkillsRotation() {
   
   animate();
 }
+
+// Add global mouse event listeners for tooltips
+document.addEventListener('DOMContentLoaded', () => {
+  // Add mouse move listener to the skills circle container
+  const skillsCircleContainer = document.querySelector('.skills-circle-container');
+  
+  if (skillsCircleContainer) {
+    skillsCircleContainer.addEventListener('mousemove', (e) => {
+      const skillLogos = document.querySelectorAll('.skill-logo');
+      
+      skillLogos.forEach(logo => {
+        const rect = logo.getBoundingClientRect();
+        const mouseX = e.clientX;
+        const mouseY = e.clientY;
+        
+        // Check if mouse is over the skill logo
+        if (mouseX >= rect.left && mouseX <= rect.right && 
+            mouseY >= rect.top && mouseY <= rect.bottom) {
+          // Show tooltip and bring to front
+          const tooltip = logo.querySelector('.skill-tooltip');
+          if (tooltip) {
+            tooltip.style.opacity = '1';
+            tooltip.style.visibility = 'visible';
+            tooltip.style.transform = 'translateX(-50%) translateY(-10px)';
+            logo.style.zIndex = '20'; // Bring hovered element to front
+          }
+        } else {
+          // Hide tooltip and reset z-index
+          const tooltip = logo.querySelector('.skill-tooltip');
+          if (tooltip) {
+            tooltip.style.opacity = '0';
+            tooltip.style.visibility = 'hidden';
+            tooltip.style.transform = 'translateX(-50%) translateY(0)';
+            logo.style.zIndex = '1'; // Reset to normal z-index
+          }
+        }
+      });
+    });
+    
+    // Hide all tooltips when mouse leaves the container
+    skillsCircleContainer.addEventListener('mouseleave', () => {
+      const tooltips = document.querySelectorAll('.skill-tooltip');
+      const skillLogos = document.querySelectorAll('.skill-logo');
+      
+      tooltips.forEach(tooltip => {
+        tooltip.style.opacity = '0';
+        tooltip.style.visibility = 'hidden';
+        tooltip.style.transform = 'translateX(-50%) translateY(0)';
+      });
+      
+      skillLogos.forEach(logo => {
+        logo.style.zIndex = '1'; // Reset all z-index values
+      });
+    });
+  }
+});
 
 // Add intersection observer for skills section
 const skillsObserver = new IntersectionObserver((entries) => {
