@@ -100,7 +100,7 @@ function createSkillsCircle() {
   skillsCircle.innerHTML = '';
   
   // Calculate positions in a circle
-  const radius = 120; // Adjust based on the circle size
+  const radius = 120; 
   const totalSkills = skillsData.length;
   
   skillsData.forEach((skill, index) => {
@@ -142,7 +142,7 @@ function animateSkillsRotation() {
   let currentAngle = 0;
   
   setInterval(() => {
-    currentAngle += 0.005; // Speed of rotation
+    currentAngle += 0.005; 
     
     skillLogos.forEach((logo, index) => {
       const angle = currentAngle + (index / totalSkills) * 2 * Math.PI;
@@ -162,8 +162,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const contactForm = document.getElementById('contact-form');
   if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
-      // Let the form submit normally to Formspree
-      // But show a thank you message after a short delay
       setTimeout(() => {
         alert('Thank you for reaching out! I will get back to you soon.');
       }, 100);
