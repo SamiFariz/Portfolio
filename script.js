@@ -15,6 +15,17 @@ window.addEventListener('scroll', () => {
   }
 });
 
+// Scroll Progress Indicator
+window.addEventListener('scroll', () => {
+  const scrollProgress = document.querySelector('.scroll-progress');
+  if (scrollProgress) {
+    const scrollTop = window.pageYOffset;
+    const docHeight = document.body.offsetHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+    scrollProgress.style.width = scrollPercent + '%';
+  }
+});
+
 // Mobile Navigation Toggle
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
@@ -46,15 +57,22 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// Section Animation on Scroll
+// Enhanced Section Animation on Scroll
 const observeSection = (entries, observer) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
       
-      // Animate skill bars when skills section becomes visible
-      if (entry.target.id === 'skills') {
+      // Add staggered animations for different sections
+      if (entry.target.id === 'about') {
+        entry.target.classList.add('fade-in-left');
+      } else if (entry.target.id === 'skills') {
+        entry.target.classList.add('fade-in-up');
         animateSkillBars();
+      } else if (entry.target.id === 'projects') {
+        entry.target.classList.add('fade-in-up');
+      } else if (entry.target.id === 'contact') {
+        entry.target.classList.add('fade-in-up');
       }
     }
   });
@@ -63,7 +81,7 @@ const observeSection = (entries, observer) => {
 const sectionObserver = new IntersectionObserver(observeSection, {
   root: null,
   threshold: 0.15,
-  rootMargin: '0px'
+  rootMargin: '-50px'
 });
 
 document.querySelectorAll('.section').forEach(section => {
@@ -294,11 +312,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (window.matchMedia('(hover: hover)').matches) {
       card.addEventListener('mouseenter', () => {
         card.classList.add('flipped');
-      });
-      
-      card.addEventListener('mouseleave', () => {
+    });
+    
+    card.addEventListener('mouseleave', () => {
         card.classList.remove('flipped');
-      });
+    });
     }
   });
 });
