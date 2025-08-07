@@ -101,7 +101,7 @@ img {
   bottom: -10px;
   left: 50%;
   transform: translateX(-50%);
-  width: 80px;
+  width: 150px;
   height: 4px;
   background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
   border-radius: 2px;
