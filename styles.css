@@ -992,6 +992,40 @@ footer {
     flex-wrap: wrap;
     justify-content: center;
   }
+  
+  /* Skills section mobile improvements */
+  .section-title {
+    margin-bottom: 4rem;
+  }
+  
+  .skills-circle-container {
+    margin-top: 2rem;
+  }
+  
+  .skills-circle {
+    width: 280px;
+    height: 280px;
+  }
+  
+  .skills-circle::before {
+    width: 300px;
+    height: 300px;
+  }
+  
+  .skills-circle::after {
+    width: 320px;
+    height: 320px;
+  }
+  
+  .skill-logo {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .skill-logo img {
+    width: 28px;
+    height: 28px;
+  }
 }
 
 @media (max-width: 576px) {
@@ -1009,21 +1043,32 @@ footer {
   
   .section-title {
     font-size: 2rem;
+    margin-bottom: 3rem;
   }
   
   .skills-circle {
-    width: 220px;
-    height: 220px;
+    width: 240px;
+    height: 240px;
+  }
+  
+  .skills-circle::before {
+    width: 260px;
+    height: 260px;
+  }
+  
+  .skills-circle::after {
+    width: 280px;
+    height: 280px;
   }
   
   .skill-logo {
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
   }
   
   .skill-logo img {
-    width: 22px;
-    height: 22px;
+    width: 24px;
+    height: 24px;
   }
   
   #contact-form {
