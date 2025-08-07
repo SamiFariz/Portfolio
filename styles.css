@@ -1164,6 +1164,14 @@ footer {
     margin-left: 0.3rem;
   }
   
+  .animate-subtitle {
+    font-size: 1.3rem;
+  }
+  
+  .typing-animation {
+    animation: typing 2.5s steps(50, end) 2.5s forwards, blink-caret 0.75s step-end 8 2.5s;
+  }
+  
   .nav-links {
     position: fixed;
     top: 0;
@@ -1270,7 +1278,11 @@ footer {
   }
   
   .animate-subtitle {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+  }
+  
+  .typing-animation {
+    animation: typing 2s steps(50, end) 2.5s forwards, blink-caret 0.75s step-end 8 2.5s;
   }
   
   .section-title {
