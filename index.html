@@ -35,7 +35,7 @@
       <ul class="nav-links">
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#resume">Resume</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -71,15 +71,28 @@
     </div>
   </section>
   
-  <section id="skills" class="section">
+  <section id="experience" class="section">
     <div class="container">
-      <h2 class="section-title">My Skills</h2>
-      
-      <div class="skills-container">
-        <div class="skills-circle-container">
-          <div class="skills-circle">
+      <h2 class="section-title">Experience</h2>
+      <div class="experience-list">
+        <article class="experience-card">
+          <div class="experience-header">
+            <div class="experience-header-main">
+              <h3 class="experience-company">La Moda Furniture</h3>
+              <p class="experience-location"><i class="fas fa-location-dot" aria-hidden="true"></i> Chicago, Illinois</p>
+            </div>
+            <div class="experience-meta">
+              <p class="experience-role">IT &amp; Web Development</p>
+              <p class="experience-date"><i class="fas fa-calendar" aria-hidden="true"></i> July 2024 – Present</p>
+            </div>
           </div>
-        </div>
+          <ul class="experience-details">
+            <li>Designed and developed a responsive website to improve online customer accessibility and digital presence.</li>
+            <li>Collaborated with business operations to support technology-driven solutions and improve workflow.</li>
+            <li>Organized digital product information to support efficient inventory presentation while scaling website updates.</li>
+            <li>Performed debugging and frontend optimization to improve usability and cross-browser compatibility.</li>
+          </ul>
+        </article>
       </div>
     </div>
   </section>
@@ -88,33 +101,93 @@
     <div class="container">
       <h2 class="section-title">Projects</h2>
       <div class="projects-grid">
-        <div class="project-card">
+        <article class="project-card project-card--featured" aria-label="Media Framing of Palestine data analytics project">
           <div class="project-card-inner">
             <div class="project-card-front">
-              <div class="project-image" style="background-image: url('assets/DC.png')"></div>
-              <h3>Dhikr Connect (Website)</h3>
+              <span class="project-badge"><i class="fas fa-chart-line" aria-hidden="true"></i> Data Analytics</span>
+              <div class="project-image project-image--analytics">
+                <div class="analytics-visual" aria-hidden="true">
+                  <i class="fas fa-database"></i>
+                  <i class="fas fa-brain"></i>
+                  <i class="fas fa-chart-bar"></i>
+                </div>
+              </div>
+              <h3>Media Framing of Palestine</h3>
+              <p class="project-subtitle">NLP &amp; ML Pipeline</p>
             </div>
             <div class="project-card-back">
-              <h3>Dhikr Connect (Website)</h3>
-              <p>Developed a responsive website to display Islamic prayer times based on the user's location using JavaScript, HTML, and CSS. Integrated geolocation and API services for real-time data. Features a real-time countdown to the next prayer. Each prayer time card flips to reveal a motivational quote from the Quran. Allows users to select a Surah (chapter) from the Quran via a dropdown menu.</p>
-              <a href="https://www.dhikrconnect.com" class="project-btn" target="_blank">Visit Website</a>
+              <h3>Media Framing of Palestine</h3>
+              <p>End-to-end data science capstone analyzing how global media frames Palestine coverage. Built an NLP pipeline on GDELT news headlines—data cleaning, balancing, sentiment analysis, and ML classification—with reproducible Jupyter workflows and exploratory visualizations.</p>
+              <ul class="project-highlights" aria-label="Key analytics outcomes">
+                <li>GDELT headline ingestion &amp; structured CSV pipelines</li>
+                <li>Text preprocessing, feature engineering &amp; model evaluation</li>
+                <li>pandas · scikit-learn · NLTK · TextBlob · Matplotlib</li>
+              </ul>
+              <div class="project-tags">
+                <span>Python</span>
+                <span>Pandas</span>
+                <span>scikit-learn</span>
+                <span>NLP</span>
+                <span>Jupyter</span>
+              </div>
+              <a href="https://github.com/uic-cs418/group-404-data-not-found" class="project-btn" target="_blank" rel="noopener noreferrer">View on GitHub</a>
             </div>
           </div>
-        </div>
+        </article>
 
-        <div class="project-card">
+        <article class="project-card" aria-label="Dhikr Connect website project">
           <div class="project-card-inner">
             <div class="project-card-front">
-              <div class="project-image" style="background-image: url('assets/DC2.png')"></div>
+              <span class="project-badge"><i class="fas fa-globe" aria-hidden="true"></i> Web Development</span>
+              <div class="project-image project-image--photo" style="background-image: url('assets/DC.png')"></div>
+              <h3>Dhikr Connect (Website)</h3>
+              <p class="project-subtitle">Prayer Times · Quran · Geolocation</p>
+            </div>
+            <div class="project-card-back">
+              <h3>Dhikr Connect (Website)</h3>
+              <p>Responsive web app delivering accurate Islamic prayer times from the user's location, with real-time countdowns and an integrated Quran experience.</p>
+              <ul class="project-highlights" aria-label="Key features">
+                <li>Geolocation &amp; API-driven prayer time calculations</li>
+                <li>Flip cards with Quranic quotes &amp; Surah browser</li>
+                <li>JavaScript · HTML · CSS · REST APIs</li>
+              </ul>
+              <div class="project-tags">
+                <span>JavaScript</span>
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>APIs</span>
+              </div>
+              <a href="https://www.dhikrconnect.com" class="project-btn" target="_blank" rel="noopener noreferrer">Visit Website</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" aria-label="Dhikr Connect iOS app project">
+          <div class="project-card-inner">
+            <div class="project-card-front">
+              <span class="project-badge"><i class="fab fa-apple" aria-hidden="true"></i> iOS Development</span>
+              <div class="project-image project-image--photo" style="background-image: url('assets/DC2.png')"></div>
               <h3>Dhikr Connect (App)</h3>
+              <p class="project-subtitle">Swift · SwiftUI · MVVM</p>
             </div>
             <div class="project-card-back">
               <h3>Dhikr Connect (App)</h3>
-              <p>DhikrConnect is a privacy-first iOS app built with Swift and SwiftUI, serving as a comprehensive Islamic companion. It features real-time prayer time calculations using CoreLocation and the Aladhan API, a responsive Quran browser, a Qibla compass, Zakat calculator, and daily Hadith display. Designed with MVVM architecture, it supports offline use, dark/light mode, Arabic typography, and optimized performance across 12+ devices in 200+ countries.</p>
-              <a href="https://apps.apple.com/us/app/dhikr-connect/id6743780696" class="project-btn" target="_blank">Visit App</a>
+              <p>Privacy-first iOS Islamic companion with prayer times, Quran browser, Qibla compass, Zakat calculator, and daily Hadith—built for offline use across 200+ countries.</p>
+              <ul class="project-highlights" aria-label="Key features">
+                <li>CoreLocation &amp; Aladhan API prayer calculations</li>
+                <li>MVVM architecture with dark/light mode &amp; Arabic typography</li>
+                <li>Swift · SwiftUI · CoreLocation</li>
+              </ul>
+              <div class="project-tags">
+                <span>Swift</span>
+                <span>SwiftUI</span>
+                <span>MVVM</span>
+                <span>CoreLocation</span>
+              </div>
+              <a href="https://apps.apple.com/us/app/dhikr-connect/id6743780696" class="project-btn" target="_blank" rel="noopener noreferrer">Visit App</a>
             </div>
           </div>
-        </div>
+        </article>
       </div>
     </div>
   </section>
@@ -168,7 +241,7 @@
         <div class="footer-links">
           <a href="#home">Home</a>
           <a href="#about">About</a>
-          <a href="#skills">Skills</a>
+          <a href="#experience">Experience</a>
           <a href="#projects">Projects</a>
           <a href="#resume">Resume</a>
           <a href="#contact">Contact</a>
