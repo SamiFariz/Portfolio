@@ -3,264 +3,316 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Sami Fariz - Software Developer Portfolio showcasing skills in C++, Python, JavaScript, and more">
-  <meta name="keywords" content="Sami Fariz, Software Developer, Portfolio, Programming, Web Development, iOS Development">
-  <title>Sami Fariz - Portfolio</title>
+  <meta name="description" content="Sami Fariz — Software engineer building web, iOS, and data products. Open to internships and full-time roles.">
+  <title>Sami Fariz — Software Engineer</title>
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="assets/favicon.png">
 </head>
 <body>
-  <div class="scroll-progress"></div>
-  <div class="preloader">
-    <div class="loader"></div>
-  </div>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <header id="home">
-    <div class="header-content">
-      <h1 class="animate-title">Sami Fariz <span class="welcome-hand">👋</span></h1>
-      <p class="animate-subtitle typing-animation">Full-Stack Developer | Building Real-World Solutions</p>
-      <a href="#contact" class="cta-button animate-button">Get in touch</a>
+  <header class="site-header" id="top">
+    <div class="site-header__inner">
+      <a class="brand" href="#top" aria-label="Sami Fariz home">
+        <span class="brand__mark">SF</span>
+        <span class="brand__name">Sami Fariz</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="site-nav-list">
+          <span class="site-nav__toggle-label">Menu</span>
+          <span class="site-nav__toggle-icon" aria-hidden="true"></span>
+        </button>
+        <ul class="site-nav__list" id="site-nav-list">
+          <li><a href="#about" data-nav>About</a></li>
+          <li><a href="#skills" data-nav>Skills</a></li>
+          <li><a href="#experience" data-nav>Experience</a></li>
+          <li><a href="#projects" data-nav>Work</a></li>
+          <li><a href="#contact" data-nav>Contact</a></li>
+          <li class="site-nav__mobile-resume"><a href="assets/resume.pdf" download="Sami_Fariz_Resume.pdf">Resume</a></li>
+        </ul>
+      </nav>
+      <div class="site-header__actions">
+        <a class="text-link" href="https://github.com/SamiFariz" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a class="btn btn--small" href="assets/resume.pdf" download="Sami_Fariz_Resume.pdf">Resume</a>
+      </div>
     </div>
   </header>
 
-  <nav id="navbar">
-    <div class="nav-container">
-      <div class="logo">
-        <a href="#home">SF</a>
-      </div>
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#resume">Resume</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <div class="social-nav">
-        <a href="https://github.com/SamiFariz" target="_blank" class="github-icon" aria-label="GitHub">
-          <i class="fab fa-github"></i>
-        </a>
-        <a href="https://www.linkedin.com/in/sami-fariz/" target="_blank" class="linkedin-icon" aria-label="LinkedIn">
-          <i class="fab fa-linkedin"></i>
-        </a>
-      </div>
-      <div class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-  </nav>
-
-  <section id="about" class="section">
-    <div class="container">
-      <h2 class="section-title">About Me</h2>
-      <div class="about-content">
-        <div class="about-text">
-          <p>I'm a software engineer passionate about systems programming, performance optimization, and building efficient solutions. With hands-on experience in iOS and web development, I thrive at the intersection of high-performance computing and modern software engineering.</p>
-          <p>I enjoy solving complex problems and contributing to open-source projects. Outside of code, I reset through basketball and gaming, keeping my mind fresh for complex problem-solving.</p>
-        </div>
-        <div class="about-image">
-          <img src="assets/IMG_2330.jpg" alt="Sami Fariz" loading="lazy" />
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <section id="experience" class="section">
-    <div class="container">
-      <h2 class="section-title">Experience</h2>
-      <div class="experience-list">
-        <article class="experience-card">
-          <div class="experience-header">
-            <div class="experience-header-main">
-              <h3 class="experience-company">La Moda Furniture</h3>
-              <p class="experience-location"><i class="fas fa-location-dot" aria-hidden="true"></i> Chicago, Illinois</p>
-            </div>
-            <div class="experience-meta">
-              <p class="experience-role">IT &amp; Web Development</p>
-              <p class="experience-date"><i class="fas fa-calendar" aria-hidden="true"></i> July 2024 – Present</p>
-            </div>
+  <main id="main">
+    <section class="hero" id="home" aria-labelledby="hero-heading">
+      <div class="wrap hero__grid">
+        <div class="hero__copy reveal">
+          <p class="eyebrow">Software Engineer · Chicago, IL</p>
+          <h1 id="hero-heading" class="hero__title">
+            I ship software that is <em>fast, clear,</em> and built to last.
+          </h1>
+          <p class="hero__lede">
+            Full-stack engineer with hands-on work across web platforms, iOS apps, and data pipelines.
+            I care about performance, maintainable code, and products people actually use.
+          </p>
+          <div class="hero__cta">
+            <a class="btn btn--primary" href="#projects">View selected work</a>
+            <a class="btn btn--ghost" href="#contact">Get in touch</a>
           </div>
-          <ul class="experience-details">
-            <li>Designed and developed a responsive website to improve online customer accessibility and digital presence.</li>
-            <li>Collaborated with business operations to support technology-driven solutions and improve workflow.</li>
-            <li>Organized digital product information to support efficient inventory presentation while scaling website updates.</li>
-            <li>Performed debugging and frontend optimization to improve usability and cross-browser compatibility.</li>
+          <dl class="hero__stats">
+            <div>
+              <dt>Focus</dt>
+              <dd>Web · iOS · Data</dd>
+            </div>
+            <div>
+              <dt>Status</dt>
+              <dd>Open to roles</dd>
+            </div>
+            <div>
+              <dt>Based in</dt>
+              <dd>Chicago</dd>
+            </div>
+          </dl>
+        </div>
+        <figure class="hero__visual reveal" style="--reveal-delay: 120ms">
+          <div class="hero__frame">
+            <img src="assets/IMG_2330.jpg" alt="Portrait of Sami Fariz" width="480" height="560" loading="eager" decoding="async">
+          </div>
+          <figcaption class="hero__caption">Building for users, teams, and production.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section section--about" id="about" aria-labelledby="about-heading">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="eyebrow">About</p>
+          <h2 id="about-heading" class="section-head__title">Engineering with intent</h2>
+        </header>
+        <div class="about-grid reveal">
+          <div class="about-grid__main">
+            <p class="lead">
+              I'm a software engineer drawn to systems thinking, clean interfaces, and software that holds up after launch day.
+            </p>
+            <p>
+              I've built production websites for local businesses, shipped an iOS app used internationally, and led data analysis work
+              with real-world datasets. I like owning problems end to end—from scoping and implementation to debugging and iteration.
+            </p>
+            <p>
+              Outside of code, I recharge with basketball and gaming. Both keep me competitive and patient when debugging gets hard.
+            </p>
+          </div>
+          <aside class="about-grid__aside">
+            <h3 class="about-aside__title">Currently</h3>
+            <ul class="about-list">
+              <li>IT &amp; Web Development at La Moda Furniture</li>
+              <li>Seeking software engineering internships</li>
+              <li>Interested in product-minded teams</li>
+            </ul>
+            <h3 class="about-aside__title">Links</h3>
+            <ul class="about-links">
+              <li><a href="https://github.com/SamiFariz" target="_blank" rel="noopener noreferrer">GitHub →</a></li>
+              <li><a href="https://www.linkedin.com/in/sami-fariz/" target="_blank" rel="noopener noreferrer">LinkedIn →</a></li>
+              <li><a href="assets/resume.pdf" download="Sami_Fariz_Resume.pdf">Download resume →</a></li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--skills" id="skills" aria-labelledby="skills-heading">
+      <div class="wrap">
+        <header class="section-head section-head--row reveal">
+          <div>
+            <p class="eyebrow">Skills</p>
+            <h2 id="skills-heading" class="section-head__title">Technical toolkit</h2>
+          </div>
+          <p class="section-head__note">Languages and tools I reach for in production work.</p>
+        </header>
+        <div class="skills-grid reveal">
+          <article class="skill-group">
+            <h3>Languages</h3>
+            <ul>
+              <li>Python</li>
+              <li>JavaScript</li>
+              <li>Swift</li>
+              <li>C++</li>
+              <li>Java</li>
+            </ul>
+          </article>
+          <article class="skill-group">
+            <h3>Frontend &amp; Web</h3>
+            <ul>
+              <li>HTML &amp; CSS</li>
+              <li>Responsive UI</li>
+              <li>REST APIs</li>
+              <li>Performance tuning</li>
+            </ul>
+          </article>
+          <article class="skill-group">
+            <h3>Mobile</h3>
+            <ul>
+              <li>SwiftUI</li>
+              <li>MVVM</li>
+              <li>CoreLocation</li>
+              <li>Offline-first UX</li>
+            </ul>
+          </article>
+          <article class="skill-group">
+            <h3>Data &amp; ML</h3>
+            <ul>
+              <li>pandas</li>
+              <li>scikit-learn</li>
+              <li>NLP pipelines</li>
+              <li>Jupyter</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--experience" id="experience" aria-labelledby="experience-heading">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="eyebrow">Experience</p>
+          <h2 id="experience-heading" class="section-head__title">Where I've built impact</h2>
+        </header>
+        <article class="timeline-item reveal">
+          <div class="timeline-item__marker" aria-hidden="true"></div>
+          <div class="timeline-item__body">
+            <div class="timeline-item__top">
+              <div>
+                <h3 class="timeline-item__role">IT &amp; Web Development</h3>
+                <p class="timeline-item__company">La Moda Furniture</p>
+                <p class="timeline-item__location">Chicago, Illinois</p>
+              </div>
+              <time class="timeline-item__date" datetime="2024-07">Jul 2024 — Present</time>
+            </div>
+            <ul class="timeline-item__bullets">
+              <li>Designed and developed a responsive website to improve online customer accessibility and digital presence.</li>
+              <li>Collaborated with business operations to support technology-driven solutions and improve workflow.</li>
+              <li>Organized digital product information to support efficient inventory presentation while scaling website updates.</li>
+              <li>Performed debugging and frontend optimization to improve usability and cross-browser compatibility.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section--projects" id="projects" aria-labelledby="projects-heading">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="eyebrow">Selected work</p>
+          <h2 id="projects-heading" class="section-head__title">Projects with real outcomes</h2>
+          <p class="section-head__sub">Case studies across data, web, and mobile—focused on what was built and why it matters.</p>
+        </header>
+
+        <article class="case-study reveal">
+          <a class="case-study__media" href="https://github.com/uic-cs418/group-404-data-not-found" target="_blank" rel="noopener noreferrer">
+            <div class="case-study__media-inner">
+              <img src="assets/data.png" alt="Media Framing of Palestine data analytics project preview" loading="lazy" decoding="async">
+            </div>
+          </a>
+          <div class="case-study__content">
+            <span class="case-study__index" aria-hidden="true">01</span>
+            <h3 class="case-study__title"><a href="https://github.com/uic-cs418/group-404-data-not-found" target="_blank" rel="noopener noreferrer">Media Framing of Palestine</a></h3>
+            <p class="case-study__lede">End-to-end NLP and ML pipeline analyzing GDELT news headlines to study how global media frames Palestine coverage.</p>
+            <ul class="case-study__outcomes">
+              <li><strong>Pipeline</strong> Cleaning, balancing, sentiment analysis, and classification workflows</li>
+              <li><strong>Stack</strong> Python, pandas, scikit-learn, NLTK, TextBlob, Matplotlib</li>
+              <li><strong>Deliverable</strong> Reproducible Jupyter analysis with structured CSV outputs</li>
+            </ul>
+            <div class="tag-row">
+              <span>Python</span><span>NLP</span><span>ML</span><span>Jupyter</span>
+            </div>
+            <a class="text-link text-link--arrow" href="https://github.com/uic-cs418/group-404-data-not-found" target="_blank" rel="noopener noreferrer">View repository</a>
+          </div>
+        </article>
+
+        <article class="case-study case-study--reverse reveal">
+          <a class="case-study__media" href="https://tmprocuts.com" target="_blank" rel="noopener noreferrer">
+            <div class="case-study__media-inner">
+              <img src="assets/TMProCuts.png" alt="T&amp;M Pro Cuts website preview" loading="lazy" decoding="async">
+            </div>
+          </a>
+          <div class="case-study__content">
+            <span class="case-study__index" aria-hidden="true">02</span>
+            <h3 class="case-study__title"><a href="https://tmprocuts.com" target="_blank" rel="noopener noreferrer">T&amp;M Pro Cuts</a></h3>
+            <p class="case-study__lede">Premium barbershop marketing site built for walk-in customers—services, pricing, social proof, and hours in one clear flow.</p>
+            <ul class="case-study__outcomes">
+              <li><strong>UX</strong> Mobile-first layout with direct calls to action</li>
+              <li><strong>Content</strong> Service menu, testimonials, and location blocks</li>
+              <li><strong>Goal</strong> Strengthen local discovery and shop credibility online</li>
+            </ul>
+            <div class="tag-row">
+              <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Responsive</span>
+            </div>
+            <a class="text-link text-link--arrow" href="https://tmprocuts.com" target="_blank" rel="noopener noreferrer">Visit live site</a>
+          </div>
+        </article>
+
+        <article class="case-study reveal">
+          <a class="case-study__media" href="https://apps.apple.com/us/app/dhikr-connect/id6743780696" target="_blank" rel="noopener noreferrer">
+            <div class="case-study__media-inner">
+              <img src="assets/DC2.png" alt="Dhikr Connect iOS app preview" loading="lazy" decoding="async">
+            </div>
+          </a>
+          <div class="case-study__content">
+            <span class="case-study__index" aria-hidden="true">03</span>
+            <h3 class="case-study__title"><a href="https://apps.apple.com/us/app/dhikr-connect/id6743780696" target="_blank" rel="noopener noreferrer">Dhikr Connect</a></h3>
+            <p class="case-study__lede">Privacy-first iOS companion for prayer times, Quran browsing, Qibla, Zakat, and daily Hadith—architected for reliability at scale.</p>
+            <ul class="case-study__outcomes">
+              <li><strong>Reach</strong> Optimized across 12+ devices in 200+ countries</li>
+              <li><strong>Architecture</strong> SwiftUI + MVVM with offline support</li>
+              <li><strong>Integrations</strong> CoreLocation and Aladhan API</li>
+            </ul>
+            <div class="tag-row">
+              <span>Swift</span><span>SwiftUI</span><span>MVVM</span><span>iOS</span>
+            </div>
+            <a class="text-link text-link--arrow" href="https://apps.apple.com/us/app/dhikr-connect/id6743780696" target="_blank" rel="noopener noreferrer">View on App Store</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section--contact" id="contact" aria-labelledby="contact-heading">
+      <div class="wrap contact-grid">
+        <header class="contact-grid__intro reveal">
+          <p class="eyebrow">Contact</p>
+          <h2 id="contact-heading" class="section-head__title">Let's build something useful</h2>
+          <p class="lead">
+            Open to internships, co-ops, and junior software roles. Share a role, project, or idea—I reply within a few days.
+          </p>
+          <ul class="contact-meta">
+            <li><a href="https://www.linkedin.com/in/sami-fariz/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            <li><a href="https://github.com/SamiFariz" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+            <li><a href="assets/resume.pdf" download="Sami_Fariz_Resume.pdf">Resume PDF</a></li>
           </ul>
-        </article>
-      </div>
-    </div>
-  </section>
-  
-  <section id="projects" class="section">
-    <div class="container">
-      <h2 class="section-title">Projects</h2>
-      <div class="projects-grid">
-        <article class="project-card project-card--featured" aria-label="Media Framing of Palestine data analytics project">
-          <div class="project-card-inner">
-            <div class="project-card-front">
-              <span class="project-badge"><i class="fas fa-chart-line" aria-hidden="true"></i> Data Analytics</span>
-              <div class="project-image project-image--analytics">
-                <div class="analytics-visual" aria-hidden="true">
-                  <i class="fas fa-database"></i>
-                  <i class="fas fa-brain"></i>
-                  <i class="fas fa-chart-bar"></i>
-                </div>
-              </div>
-              <h3>Media Framing of Palestine</h3>
-              <p class="project-subtitle">NLP &amp; ML Pipeline</p>
-            </div>
-            <div class="project-card-back">
-              <h3>Media Framing of Palestine</h3>
-              <p>End-to-end data science capstone analyzing how global media frames Palestine coverage. Built an NLP pipeline on GDELT news headlines—data cleaning, balancing, sentiment analysis, and ML classification—with reproducible Jupyter workflows and exploratory visualizations.</p>
-              <ul class="project-highlights" aria-label="Key analytics outcomes">
-                <li>GDELT headline ingestion &amp; structured CSV pipelines</li>
-                <li>Text preprocessing, feature engineering &amp; model evaluation</li>
-                <li>pandas · scikit-learn · NLTK · TextBlob · Matplotlib</li>
-              </ul>
-              <div class="project-tags">
-                <span>Python</span>
-                <span>Pandas</span>
-                <span>scikit-learn</span>
-                <span>NLP</span>
-                <span>Jupyter</span>
-              </div>
-              <a href="https://github.com/uic-cs418/group-404-data-not-found" class="project-btn" target="_blank" rel="noopener noreferrer">View on GitHub</a>
-            </div>
+        </header>
+        <form id="contact-form" class="contact-form reveal" action="https://formspree.io/f/xrbenpja" method="POST">
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required autocomplete="name" placeholder="Your name">
           </div>
-        </article>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required autocomplete="email" placeholder="you@company.com">
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required rows="5" placeholder="Tell me about the role or project…"></textarea>
+          </div>
+          <button class="btn btn--primary btn--full" type="submit">Send message</button>
+        </form>
+      </div>
+    </section>
+  </main>
 
-        <article class="project-card" aria-label="T&amp;M Pro Cuts website project">
-          <div class="project-card-inner">
-            <div class="project-card-front">
-              <span class="project-badge"><i class="fas fa-globe" aria-hidden="true"></i> Web Development</span>
-              <div class="project-image project-image--photo" style="background-image: url('assets/TMProCuts.png')"></div>
-              <h3>T&amp;M Pro Cuts</h3>
-              <p class="project-subtitle">Barbershop · Services · Contact</p>
-            </div>
-            <div class="project-card-back">
-              <h3>T&amp;M Pro Cuts</h3>
-              <p>Premium barbershop website showcasing services, pricing, client testimonials, and shop hours—with a mobile-first layout built for walk-in customers.</p>
-              <ul class="project-highlights" aria-label="Key features">
-                <li>Service menu with clear pricing and hero call-to-actions</li>
-                <li>Testimonials, location info, and weekly hours display</li>
-                <li>HTML · CSS · Responsive design</li>
-              </ul>
-              <div class="project-tags">
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>JavaScript</span>
-                <span>Responsive</span>
-              </div>
-              <a href="https://tmprocuts.com" class="project-btn" target="_blank" rel="noopener noreferrer">Visit Website</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card" aria-label="Dhikr Connect iOS app project">
-          <div class="project-card-inner">
-            <div class="project-card-front">
-              <span class="project-badge"><i class="fab fa-apple" aria-hidden="true"></i> iOS Development</span>
-              <div class="project-image project-image--photo" style="background-image: url('assets/DC2.png')"></div>
-              <h3>Dhikr Connect (App)</h3>
-              <p class="project-subtitle">Swift · SwiftUI · MVVM</p>
-            </div>
-            <div class="project-card-back">
-              <h3>Dhikr Connect (App)</h3>
-              <p>Privacy-first iOS Islamic companion with prayer times, Quran browser, Qibla compass, Zakat calculator, and daily Hadith—built for offline use across 200+ countries.</p>
-              <ul class="project-highlights" aria-label="Key features">
-                <li>CoreLocation &amp; Aladhan API prayer calculations</li>
-                <li>MVVM architecture with dark/light mode &amp; Arabic typography</li>
-                <li>Swift · SwiftUI · CoreLocation</li>
-              </ul>
-              <div class="project-tags">
-                <span>Swift</span>
-                <span>SwiftUI</span>
-                <span>MVVM</span>
-                <span>CoreLocation</span>
-              </div>
-              <a href="https://apps.apple.com/us/app/dhikr-connect/id6743780696" class="project-btn" target="_blank" rel="noopener noreferrer">Visit App</a>
-            </div>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-  
-  <section id="resume" class="section">
-    <div class="container">
-      <h2 class="section-title">Resume</h2>
-      <div class="resume-content">
-        <p>View or download my resume to learn more about my education, experience, and skills.</p>
-        <a href="assets/resume.pdf" download="Sami_Fariz_Resume.pdf" class="download-btn">
-          <i class="fas fa-download"></i> Download Resume
-        </a>
-      </div>
-    </div>
-  </section>
-  
-  <section id="contact" class="section">
-    <div class="container">
-      <h2 class="section-title">Contact Me</h2>
-      <p class="contact-intro">I'd love to hear from you! Please fill out the form below to get in touch.</p>
-      <form id="contact-form" action="https://formspree.io/f/xrbenpja" method="POST">
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" required placeholder="Your Full Name">
-        </div>
-        
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required placeholder="Your Email Address">
-        </div>
-        
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" required placeholder="Write your message..."></textarea>
-        </div>
-        
-        <button type="submit" class="submit-btn">
-          <span>Send Message</span>
-          <i class="fas fa-paper-plane"></i>
-        </button>
-      </form>
-    </div>
-  </section>
-  
-  <footer>
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-logo">
-          <span>SF</span>
-        </div>
-        <div class="footer-links">
-          <a href="#home">Home</a>
-          <a href="#about">About</a>
-          <a href="#experience">Experience</a>
-          <a href="#projects">Projects</a>
-          <a href="#resume">Resume</a>
-          <a href="#contact">Contact</a>
-        </div>
-        <div class="footer-social">
-          <a href="https://github.com/SamiFariz" target="_blank" aria-label="GitHub">
-            <i class="fab fa-github"></i>
-          </a>
-          <a href="https://www.linkedin.com/in/sami-fariz/" target="_blank" aria-label="LinkedIn">
-            <i class="fab fa-linkedin"></i>
-          </a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2025 Sami Fariz. All rights reserved.</p>
-      </div>
+  <footer class="site-footer">
+    <div class="wrap site-footer__inner">
+      <p>© <span id="year"></span> Sami Fariz. Designed &amp; built by hand.</p>
+      <a class="text-link" href="#top">Back to top ↑</a>
     </div>
   </footer>
-  
+
   <script src="script.js"></script>
 </body>
 </html>
