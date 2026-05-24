@@ -1,5 +1,5 @@
 /**
- * Sami Fariz Portfolio — minimal, performance-focused interactions
+ * Sami Fariz Portfolio — recruiter-focused interactions
  */
 
 (function () {
@@ -11,16 +11,18 @@
   const reveals = document.querySelectorAll('.reveal');
   const yearEl = document.getElementById('year');
   const contactForm = document.getElementById('contact-form');
+  const skillCards = document.querySelectorAll('[data-skill-card]');
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   if (yearEl) {
     yearEl.textContent = String(new Date().getFullYear());
   }
 
-  /* Sticky header state */
+  /* Sticky header */
   const onScroll = () => {
-    if (!header) return;
-    header.classList.toggle('is-scrolled', window.scrollY > 8);
+    if (header) {
+      header.classList.toggle('is-scrolled', window.scrollY > 12);
+    }
     updateActiveNav();
   };
 
@@ -33,12 +35,14 @@
       const open = navToggle.getAttribute('aria-expanded') === 'true';
       navToggle.setAttribute('aria-expanded', String(!open));
       navList.classList.toggle('is-open', !open);
+      document.body.style.overflow = !open ? 'hidden' : '';
     });
 
     navLinks.forEach((link) => {
       link.addEventListener('click', () => {
         navToggle.setAttribute('aria-expanded', 'false');
         navList.classList.remove('is-open');
+        document.body.style.overflow = '';
       });
     });
   }
@@ -53,7 +57,7 @@
       if (!target) return;
 
       e.preventDefault();
-      const offset = (header?.offsetHeight ?? 72) + 12;
+      const offset = (header?.offsetHeight ?? 76) + 16;
       const top = target.getBoundingClientRect().top + window.scrollY - offset;
 
       window.scrollTo({
@@ -65,11 +69,10 @@
     });
   });
 
-  /* Active nav link */
   function updateActiveNav() {
     if (!navLinks.length) return;
 
-    const offset = (header?.offsetHeight ?? 72) + 120;
+    const offset = (header?.offsetHeight ?? 76) + 140;
     let current = '';
 
     sections.forEach((section) => {
@@ -86,22 +89,24 @@
   }
 
   /* Scroll reveal */
-  if (reveals.length && !prefersReducedMotion) {
-    const revealObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            revealObserver.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
-    );
+  if (reveals.length) {
+    if (prefersReducedMotion) {
+      reveals.forEach((el) => el.classList.add('is-visible'));
+    } else {
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -48px 0px' }
+      );
 
-    reveals.forEach((el) => revealObserver.observe(el));
-  } else {
-    reveals.forEach((el) => el.classList.add('is-visible'));
+      reveals.forEach((el) => revealObserver.observe(el));
+    }
   }
 
   /* Hero visible on load */
@@ -109,7 +114,23 @@
     requestAnimationFrame(() => el.classList.add('is-visible'));
   });
 
-  /* Contact form acknowledgment */
+  /* Subtle skill card tilt */
+  if (skillCards.length && !prefersReducedMotion) {
+    skillCards.forEach((card) => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        card.style.transform = `perspective(600px) rotateX(${y * -4}deg) rotateY(${x * 4}deg) translateY(-6px)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+      });
+    });
+  }
+
+  /* Contact form */
   if (contactForm) {
     contactForm.addEventListener('submit', () => {
       const btn = contactForm.querySelector('button[type="submit"]');
@@ -120,7 +141,6 @@
       }
 
       setTimeout(() => {
-        alert('Thank you for reaching out. I will get back to you soon.');
         if (btn) {
           btn.textContent = btn.dataset.defaultText || 'Send message';
           btn.disabled = false;
